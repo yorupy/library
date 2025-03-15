@@ -116,10 +116,13 @@ nav button,
 nav a {
     width: 100%;
     text-align: start;
-    padding: 0.2rem 1rem;
+    padding: 0.4rem 0.7rem;
     cursor: pointer;
     background-color: inherit;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 nav a.selected,
