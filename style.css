@@ -263,7 +263,7 @@ main h2 {
 }
 
 .card .cover {
-    width: 25%;
+    min-width: 25%;
     max-width: 150px;
     height: auto;
     border-radius: 10px;
