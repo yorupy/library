@@ -25,6 +25,7 @@ function createBookCard(name, author, description, chapters, read, cover) {
 
     const coverImage = document.createElement("img");
     coverImage.src = cover;
+    coverImage.classList.add("cover");
     coverImage.setAttribute("width", 256)
     coverImage.setAttribute("height", 363);
     coverImage.setAttribute("alt", "Volume cover");
@@ -60,7 +61,7 @@ function createCardInfo(author, chapters) {
     authorParagraph.textContent = author;
     authorParagraph.classList.add("author");
     const authorIcon = createIconImage("./assets/user.svg", 24);
-    authorContainer.append(authorParagraph, authorIcon);
+    authorContainer.append(authorIcon, authorParagraph);
 
     const chaptersContainer = document.createElement("div");
     chaptersContainer.classList.add("chapters-container");
@@ -68,7 +69,7 @@ function createCardInfo(author, chapters) {
     chaptersParagraph.textContent = chapters;
     chaptersParagraph.classList.add("chapters");
     const chaptersIcon = createIconImage("./assets/hash.svg", 24);
-    chaptersContainer.append(chaptersParagraph, chaptersIcon);
+    chaptersContainer.append(chaptersIcon, chaptersParagraph);
 
     infoContainer.append(authorContainer, chaptersContainer);
 
@@ -87,7 +88,6 @@ function appendBooksToDOM() {
     const container = document.querySelector(".cards");
     for (const book of myLibrary) {
         const card = createBookCard(book.name, book.author, book.description, book.chapters, book.read, book.cover);
-        console.log(book);
         container.append(card);
     }
 }

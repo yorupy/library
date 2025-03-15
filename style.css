@@ -236,3 +236,28 @@ main h2 {
     margin-bottom: 2rem;
     font-size: 1.2rem;
 }
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1rem;
+}
+
+.cards .card {
+    display: flex;
+    gap: 0.5rem;
+    height: 15rem;
+    background-color: #F0F1F2;
+    padding: 0.5rem;
+}
+
+.card .cover {
+    flex-basis: 25%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card .content {
+    flex-grow: 1;
+}
