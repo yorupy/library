@@ -248,7 +248,18 @@ main h2 {
     gap: 0.5rem;
     height: 15rem;
     background-color: #F0F1F2;
+    align-items: start;
     padding: 0.5rem;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.card .title {
+    font-size: 1rem;
+}
+
+.card .description {
+    font-size: 0.9rem;
 }
 
 .card .cover {
@@ -258,6 +269,28 @@ main h2 {
     border-radius: 10px;
 }
 
+
 .card .content {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.card .info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.card .info img {
+    width: 1rem;
+    height: auto;
+}
+
+.info div {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
 }
