@@ -26,18 +26,48 @@ function createBookCard(name, author, description, chapters, read, cover) {
     titleHeading.textContent = name;
     titleHeading.classList.add("title");
 
-    const authorParagraph = document.createElement("p");
-    authorParagraph.textContent = author;
-    authorParagraph.classList.add("author");
-
-    const chaptersParagraph = document.querySelector("p");
-    chaptersParagraph.textContent = chapters;
-    chaptersParagraph.classList.add("chapters");
+    const info = createCardInfo(author, chapters);
 
     const descriptionParagraph = document.querySelector("p");
     descriptionParagraph.textContent = description;
     descriptionParagraph.classList.add("description");
 
+    card.append(titleHeading, info, descriptionParagraph);
+
+    return card;
+
+}
+
+function createCardInfo(author, chapters) {
+    const infoContainer = document.createElement(".div");
+    infoContainer.classList.add("info");
+
+    const authorContainer = document.createElement(".div");
+    authorContainer.classList.add("author-container");
+    const authorParagraph = document.createElement("p");
+    authorParagraph.textContent = author;
+    authorParagraph.classList.add("author");
+    const authorIcon = createIconImage("./assets/user.svg", 24);
+    authorContainer.append(authorParagraph, authorIcon);
+
+    const chaptersContainer = document.createElement(".div");
+    chaptersContainer.classList.add("chapters-container");
+    const chaptersParagraph = document.querySelector("p");
+    chaptersParagraph.textContent = chapters;
+    chaptersParagraph.classList.add("chapters");
+    const chaptersIcon = createIconImage("./assets/hash.svg", 24);
+    chaptersContainer.append(chaptersParagraph, chaptersIcon);
+
+    infoContainer.append(authorContainer, chaptersContainer);
+
+}
+
+function createIconImage(source, size) {
+    const icon = document.createElement("img");
+    img.src = source;
+    img.width = size;
+    img.height = size;
+    return icon;
 }
 
 
