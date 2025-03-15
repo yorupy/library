@@ -130,3 +130,60 @@ nav button.selected {
     background-color: var(--mangadex-orange);
     color: white;
 }
+
+main {
+    padding: 0.5rem 1.5rem 1rem 1rem;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.navbar p {
+    flex-grow: 1;
+    background-color: var(--mangadex-orange);
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0.3rem 0;
+    opacity: 0.75;
+}
+
+.navbar .right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar img {
+    width: 2.5rem;
+    height: auto;
+    border-radius: 100%;
+}
+
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.right input {
+    padding: 0.3rem 1rem;
+    background-color: #F0F1F2;
+    border-radius: 10px;
+    border: none;
+}
+
+.search-bar .search-icon {
+    position: absolute;
+    width: 1rem;
+    height: auto;
+    right: 1rem;
+}
+
+.right input::placeholder {
+    color: black;
+}
