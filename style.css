@@ -116,7 +116,7 @@ nav button,
 nav a {
     width: 100%;
     text-align: start;
-    padding: 0.4rem 0.7rem;
+    padding: 0.2rem 0.7rem;
     cursor: pointer;
     background-color: inherit;
     border-radius: 5px;
@@ -186,4 +186,16 @@ main {
 
 .right input::placeholder {
     color: black;
+}
+
+.selected img {
+    filter: invert(1);
+}
+
+main h2 {
+    font-family: "League Spartan", sans-serif;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
 }
