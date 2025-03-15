@@ -28,22 +28,26 @@
                         Home
                     </a>
                 </li>
-                <li>
-                    <button type="button">
-                        <img src="./assets/book-open.svg" alt="Open book icon" width="24" height="24">
-                        Read
-                    </button>
-                </li>
-                <li>
-                    <button type="button">
-                        <img src="./assets/book.svg" alt="Closed book icon" width="24" height="24">
-                        Unread
-                    </button>
-                </li>
             </ul>
         </nav>
     </header>
-    <main></main>
+    <main>
+        <div class="navbar">
+            <p>YoruDex needs your support</p>
+            <div class="right">
+                <input type="search" name="search" id="search" placeholder="Search" disabled>
+                <img src="./assets/avatar.png" alt="Avatar" width="1065" height="1065">
+            </div>
+        </div>
+        <h2>Library</h2>
+        <div class="filters">
+            <button type="button">All</button>
+            <button type="button">Completed</button>
+            <button type="button">Plan to Read</button>
+        </div>
+        <p class="count"><span class="number"></span> Titles</p>
+        <div class="cards"></div>
+    </main>
 
 </body>
 
