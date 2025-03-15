@@ -132,7 +132,11 @@ nav button.selected {
 }
 
 main {
+    display: flex;
+    flex-direction: column;
     padding: 0.5rem 1.5rem 1rem 1rem;
+    z-index: 1;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .navbar {
@@ -150,6 +154,7 @@ main {
     border-radius: 10px;
     padding: 0.3rem 0;
     opacity: 0.75;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .navbar .right {
@@ -221,4 +226,9 @@ main h2 {
 
 .filters button.current {
     color: white;
+}
+
+.count {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
