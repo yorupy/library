@@ -97,6 +97,34 @@ function removeLibrary() {
     library.remove();
 }
 
+function createMangaForm() {
+    const form = document.createElement("form");
+    form.classList.add("manga-form");
+
+    const heading = document.createElement("h2");
+    heading.textContent = "Create new manga entry";
+
+    return form;
+}
+
+function createFormField(labelText, type, name, required) {
+    const paragraph = document.createElement("p");
+
+    const label = document.createElement("label");
+    label.textContent = labelText
+    label.setAttribute("for", name);
+
+    const input = document.createElement("input");
+    input.setAttribute("type", type);
+    input.setAttribute("name", name);
+    input.setAttribute("id", name);
+    input.required = required;
+
+    paragraph.append(label, input);
+
+    return paragraph;
+}
+
 
 addBookToLibrary("I Want To End This Love Game", "Doumoto Yuuki", 'Childhood friends who have been together since they were little. They both realize their feelings for each other, but are too close to be honest. What connects them is the "I love you game" that they have been playing since they were little. The end of their love is decided in this simple game where the winner is the one who makes the other embarrassed!', 80, false, "./assets/aishiteru.jpg");
 addBookToLibrary("The Dangers In My Heart", "Sakura Norio", "Following Ichikawa Kyoutarou, a teenage boy belonging to the very bottom caste of his school, this work details his troubled interactions with a certain classmate, and his attempt to hide murderous impulses that find themselves in the darkest recesses of his soul.", 121, false, "./assets/yabai.jpg");
