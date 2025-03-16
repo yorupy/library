@@ -97,6 +97,7 @@ nav ul {
     display: flex;
     flex-direction: column;
     font-weight: bold;
+    gap: 1rem;
 }
 
 nav a {
@@ -293,4 +294,12 @@ main h2 {
     display: flex;
     align-items: center;
     gap: 0.3rem;
+}
+
+button.new-manga:hover {
+    background-color: #E9EAEB;
+}
+
+button.new-manga:active {
+    background-color: var(--mangadex-orange);
 }
