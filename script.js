@@ -1,5 +1,5 @@
 const myLibrary = [];
-const currentPath = "/home";
+let currentPath = "/home";
 
 function Book(name, author, description, chapters, read, cover) {
     if (!new.target) {
@@ -182,6 +182,12 @@ function createFormField(labelText, type, name, required) {
     return paragraph;
 }
 
+function appendFormToDOM() {
+    const main = document.querySelector("main");
+    const form = createMangaForm();
+    main.append(form);
+}
+
 function removeForm() {
     const form = document.querySelector(".manga-form");
     form.remove();
@@ -194,9 +200,30 @@ function handleHomeClick() {
             removeForm();
             appendLibraryToDOM();
             appendBooksToDOM();
-            homeAnchor.classList.toggle("selected");
+            currentPath = "/home";
+            switchSelectedButton();
         }
     })
+}
+
+function switchSelectedButton() {
+    const formButton = document.querySelector(".new-manga");
+    const libraryAnchor = document.querySelector(".home-anchor");
+    formButton.classList.toggle(".selected");
+    libraryAnchor.classList.toggle(".selected");
+}
+
+function handleNewMangaClick() {
+    const button = document.querySelector(".new-manga");
+    button.addEventListener("click", (e) => {
+        if (currentPath === "/form") {
+            return;
+        }
+        removeLibrary();
+        switchSelectedButton();
+        appendFormToDOM();
+        currentPath = "/form";
+    });
 }
 
 addBookToLibrary("I Want To End This Love Game", "Doumoto Yuuki", 'Childhood friends who have been together since they were little. They both realize their feelings for each other, but are too close to be honest. What connects them is the "I love you game" that they have been playing since they were little. The end of their love is decided in this simple game where the winner is the one who makes the other embarrassed!', 80, false, "./assets/aishiteru.jpg");
@@ -207,3 +234,4 @@ addBookToLibrary("The Angel Next Door Spoils Me Rotten", "Saeki-san", "Mahiru is
 appendLibraryToDOM();
 appendBooksToDOM();
 handleHomeClick();
+handleNewMangaClick();

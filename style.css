@@ -296,10 +296,7 @@ main h2 {
     gap: 0.3rem;
 }
 
-button.new-manga:hover {
+button.new-manga:not(.selected):hover,
+.home-anchor:not(.selected):hover {
     background-color: #E9EAEB;
-}
-
-button.new-manga:active {
-    background-color: var(--mangadex-orange);
 }
