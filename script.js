@@ -1,4 +1,5 @@
 const myLibrary = [];
+const currentPath = "/home";
 
 function Book(name, author, description, chapters, read, cover) {
     if (!new.target) {
@@ -181,6 +182,22 @@ function createFormField(labelText, type, name, required) {
     return paragraph;
 }
 
+function removeForm() {
+    const form = document.querySelector(".manga-form");
+    form.remove();
+}
+
+function handleHomeClick() {
+    const homeAnchor = document.querySelector(".home-anchor");
+    homeAnchor.addEventListener('click', (e) => {
+        if (currentPath !== "/home") {
+            removeForm();
+            appendLibraryToDOM();
+            appendBooksToDOM();
+            homeAnchor.classList.toggle("selected");
+        }
+    })
+}
 
 addBookToLibrary("I Want To End This Love Game", "Doumoto Yuuki", 'Childhood friends who have been together since they were little. They both realize their feelings for each other, but are too close to be honest. What connects them is the "I love you game" that they have been playing since they were little. The end of their love is decided in this simple game where the winner is the one who makes the other embarrassed!', 80, false, "./assets/aishiteru.jpg");
 addBookToLibrary("The Dangers In My Heart", "Sakura Norio", "Following Ichikawa Kyoutarou, a teenage boy belonging to the very bottom caste of his school, this work details his troubled interactions with a certain classmate, and his attempt to hide murderous impulses that find themselves in the darkest recesses of his soul.", 121, false, "./assets/yabai.jpg");
@@ -189,3 +206,4 @@ addBookToLibrary("The Angel Next Door Spoils Me Rotten", "Saeki-san", "Mahiru is
 
 appendLibraryToDOM();
 appendBooksToDOM();
+handleHomeClick();
