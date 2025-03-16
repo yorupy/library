@@ -161,6 +161,8 @@ function createMangaForm() {
     const heading = document.createElement("h2");
     heading.textContent = "Create new manga entry";
 
+    form.append(heading);
+
     return form;
 }
 
@@ -209,8 +211,8 @@ function handleHomeClick() {
 function switchSelectedButton() {
     const formButton = document.querySelector(".new-manga");
     const libraryAnchor = document.querySelector(".home-anchor");
-    formButton.classList.toggle(".selected");
-    libraryAnchor.classList.toggle(".selected");
+    formButton.classList.toggle("selected");
+    libraryAnchor.classList.toggle("selected");
 }
 
 function handleNewMangaClick() {
