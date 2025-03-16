@@ -92,9 +92,41 @@ function appendBooksToDOM() {
     }
 }
 
+function appendLibraryToDOM() {
+    const main = document.querySelector("main");
+    const library = createLibrary();
+    main.append(library);
+}
+
 function createLibrary() {
     const container = document.createElement("div");
     container.classList.add("library");
+
+    const heading = document.createElement("h2");
+    heading.textContent = "Library";
+
+    const filters = createFilterButtons();
+    const counter = createBookCounter();
+    const cards = document.createElement("div");
+    cards.classList.add("cards");
+
+    container.append(heading, filters, counter, cards);
+
+    return container;
+}
+
+function createBookCounter() {
+    const paragraph = document.createElement("p");
+    paragraph.classList.add("count");
+
+    const span = document.createElement("span");
+    span.classList.add("number");
+
+    paragraph.append(span);
+
+    paragraph.textContent = " Titles";
+
+    return paragraph;
 }
 
 function createFilterButtons() {
@@ -156,3 +188,5 @@ addBookToLibrary("The Angel Next Door Spoils Me Rotten", "Saeki-san", "Mahiru is
 
 appendBooksToDOM();
 removeLibrary();
+appendLibraryToDOM();
+appendBooksToDOM();
