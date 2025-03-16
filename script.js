@@ -124,7 +124,8 @@ function createBookCounter() {
 
     paragraph.append(span);
 
-    paragraph.textContent = " Titles";
+    const text = document.createTextNode(" Titles");
+    paragraph.append(text);
 
     return paragraph;
 }
