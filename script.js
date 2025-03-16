@@ -92,6 +92,29 @@ function appendBooksToDOM() {
     }
 }
 
+function createLibrary() {
+    const container = document.createElement("div");
+    container.classList.add("library");
+}
+
+function createFilterButtons() {
+    const buttonsNames = ["All", "Completed", "Plan to read"];
+    const container = document.createElement("div");
+    container.classList.add("filters");
+
+    const selector = document.createElement("div");
+    selector.classList.add("selector");
+
+    container.append(selector);
+    for (const name of buttonsNames) {
+        const button = document.createElement("button");
+        button.setAttribute("type", "button");
+        button.textContent = name;
+        container.append(button);
+    }
+    return container;
+}
+
 function removeLibrary() {
     const library = document.querySelector(".library");
     library.remove();
