@@ -40,11 +40,13 @@ function createBookCard(name, author, description, chapters, read, cover) {
 
     const info = createCardInfo(author, chapters);
 
+    const controls = createCardControls(read);
+
     const descriptionParagraph = document.createElement("p");
     descriptionParagraph.textContent = description;
     descriptionParagraph.classList.add("description");
 
-    contentContainer.append(titleHeading, info, descriptionParagraph);
+    contentContainer.append(titleHeading, info, controls, descriptionParagraph);
 
     card.append(coverImage, contentContainer);
 
@@ -75,6 +77,26 @@ function createCardInfo(author, chapters) {
     infoContainer.append(authorContainer, chaptersContainer);
 
     return infoContainer;
+}
+
+function createCardControls(read) {
+    const container = document.createElement("div");
+    container.classList.add("controls");
+
+    const readButton = document.createElement("button");
+    readButton.classList.add("read");
+    const indicator = document.createElement("div");
+    indicator.classList.add("indicator");
+    const text = document.createTextNode(`${read ? "read" : "unread"}`);
+    readButton.append(indicator, text);
+
+    const removeButton = document.createElement("button");
+    removeButton.classList.add("remove");
+    removeButton.textContent = "remove";
+
+    container.append(readButton, removeButton);
+
+    return container;
 }
 
 function createIconImage(source, size) {
