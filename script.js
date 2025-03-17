@@ -180,9 +180,36 @@ function createMangaForm() {
         "pattern": "https://.*"
     });
 
-    form.append(heading, requiredParagraph, titleField, authorField, chaptersField, coverField);
+    const descriptionArea = createDescriptionArea("Description", "description", true);
+
+    form.append(heading, requiredParagraph, titleField, authorField, chaptersField, coverField, descriptionArea);
 
     return form;
+}
+
+function createDescriptionArea(labelText, name, required, attributes) {
+    const textArea = document.createElement("textarea");
+    textArea.classList.add("description");
+
+    const paragraph = document.createElement("p");
+    paragraph.classList.add("field");
+
+    const label = document.createElement("label");
+    label.textContent = labelText;
+    label.setAttribute("for", name);
+    if (required) label.classList.add("required");
+
+    textArea.setAttribute("required", required);
+    textArea.setAttribute("name", name);
+    textArea.setAttribute("id", name);
+
+    for (const attribute in attributes) {
+        textArea.setAttribute(attribute, attributes[attribute]);
+    }
+
+    paragraph.append(label, textArea);
+
+    return paragraph;
 }
 
 function createFormField(labelText, type, name, required, inputAttributes) {
