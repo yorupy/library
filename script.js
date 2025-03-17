@@ -187,12 +187,24 @@ function createMangaForm() {
         }
     );
 
-    const readCheckbox = createFormField("Have you read this manga yet?", "checkbox", "read", false, {
+    const readCheckbox = createFormField("Have you completely read this manga yet?", "checkbox", "read", false, {
     });
 
-    form.append(heading, requiredParagraph, titleField, authorField, chaptersField, coverField, descriptionArea, readCheckbox);
+    const submitButton = createSubmitButton()
+
+    form.append(heading, requiredParagraph, titleField, authorField, chaptersField, coverField, descriptionArea, readCheckbox, submitButton);
 
     return form;
+}
+
+function createSubmitButton() {
+    const button = document.createElement("button");
+    button.classList.add("submit");
+    button.setAttribute("type", "submit");
+
+    button.textContent = "Save";
+
+    return button;
 }
 
 function createDescriptionArea(labelText, name, required, attributes) {
