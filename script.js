@@ -181,11 +181,13 @@ function removeLibrary() {
 }
 
 function removeBook(id) {
-    const filteredLibrary = myLibrary.filter((book) => {
-        book.id !== id;
-    })
-    myLibrary = filteredLibrary;
-    console.log(myLibrary);
+    const filteredBooks = [];
+    for (const book of myLibrary) {
+        if (book.id !== id) {
+            filteredBooks.push(book);
+        }
+    }
+    myLibrary = filteredBooks;
     const book = document.querySelector(`[data-id="${id}"]`);
     book.remove();
 }
