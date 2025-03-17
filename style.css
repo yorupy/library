@@ -445,6 +445,9 @@ form button:active {
 }
 
 .controls .read {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
     background-color: rgb(233, 234, 235);
 }
 
@@ -468,4 +471,18 @@ form button:active {
 
 .controls .remove:active {
     background-color: var(--mangadex-orange-darkest);
+}
+
+.indicator {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 100%;
+}
+
+.indicator.green {
+    background-color: #06D002;
+}
+
+.indicator.red {
+    background-color: var(--mangadex-orange);
 }

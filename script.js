@@ -86,8 +86,8 @@ function createCardControls(read) {
     const readButton = document.createElement("button");
     readButton.classList.add("read");
     const indicator = document.createElement("div");
-    indicator.classList.add("indicator");
-    const text = document.createTextNode(`${read ? "read" : "unread"}`);
+    indicator.classList.add("indicator", read ? "green" : "red");
+    const text = document.createTextNode(read ? "read" : "unread");
     readButton.append(indicator, text);
 
     const removeButton = document.createElement("button");
