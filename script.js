@@ -101,6 +101,7 @@ function createCardControls(read, id) {
     removeButton.textContent = "remove";
     removeButton.addEventListener("click", (e) => {
         removeBook(id);
+        updateBookCount();
     })
 
     container.append(readButton, removeButton);
@@ -123,6 +124,7 @@ function appendBooksToDOM() {
         const card = createBookCard(book.name, book.author, book.description, book.chapters, book.read, book.cover, book.id);
         container.append(card);
     }
+    updateBookCount();
 }
 
 function filterDisplayBooks() {
@@ -223,6 +225,12 @@ function updateReadState(id) {
             break;
         }
     }
+}
+
+function updateBookCount() {
+    const countNumber = document.querySelector(".count .number");
+    const cards = document.querySelectorAll(".card");
+    countNumber.textContent = cards.length;
 }
 
 function refreshLibrary() {
