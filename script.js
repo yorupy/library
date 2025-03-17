@@ -1,5 +1,6 @@
 let myLibrary = [];
 let currentPath = "/home";
+let filter = "all";
 
 function Book(name, author, description, chapters, read, cover) {
     if (!new.target) {
@@ -117,10 +118,24 @@ function createIconImage(source, size) {
 
 function appendBooksToDOM() {
     const container = document.querySelector(".cards");
-    for (const book of myLibrary) {
+    const filteredBooks = filterDisplayBooks();
+    for (const book of filteredBooks) {
         const card = createBookCard(book.name, book.author, book.description, book.chapters, book.read, book.cover, book.id);
         container.append(card);
     }
+}
+
+function filterDisplayBooks() {
+    const filteredBooks = myLibrary.filter((book) => {
+        if (filter === "all") {
+            return true;
+        } else if (filter === "completed") {
+            return book.read;
+        } else {
+            return !book.read;
+        }
+    })
+    return filteredBooks;
 }
 
 function appendLibraryToDOM() {
