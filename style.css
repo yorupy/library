@@ -349,3 +349,14 @@ form {
     content: "*";
     color: red;
 }
+
+.field input {
+    padding: 0.5rem;
+    background-color: #F0F1F2;
+    border: none;
+    border-radius: 5px;
+}
+
+.field input:focus {
+    outline-color: var(--mangadex-orange);
+}
