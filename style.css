@@ -270,8 +270,6 @@ main h2 {
 }
 
 .card .content::after {
-    --md-background: 255 255 255;
-    --md-accent: 240 241 242;
     display: block;
     position: absolute;
     bottom: 0;
@@ -318,4 +316,19 @@ main h2 {
 button.new-manga:not(.selected):hover,
 .home-anchor:not(.selected):hover {
     background-color: #E9EAEB;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.required-p {
+    background-color: var(--mangadex-orange);
+    color: white;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0.7rem;
+    border-radius: 5px;
 }

@@ -161,13 +161,20 @@ function createMangaForm() {
     const heading = document.createElement("h2");
     heading.textContent = "Create new manga entry";
 
-    form.append(heading);
+    const requiredParagraph = document.createElement("p");
+    requiredParagraph.classList.add("required-p");
+    requiredParagraph.textContent = "Required fields are followed by *";
+
+    const titleField = createFormField("Title", "text", "title", true);
+
+    form.append(heading, requiredParagraph, titleField);
 
     return form;
 }
 
 function createFormField(labelText, type, name, required) {
     const paragraph = document.createElement("p");
+    paragraph.classList.add("field");
 
     const label = document.createElement("label");
     label.textContent = labelText
@@ -233,7 +240,9 @@ addBookToLibrary("The Dangers In My Heart", "Sakura Norio", "Following Ichikawa 
 addBookToLibrary("Secrets Of The Gal Wife", "Kudu", "Fuyuki is a beautiful and cool gal! But there's a secret side of her that she only shows in front of her husband...?", 66, true, "./assets/gal.jpg");
 addBookToLibrary("The Angel Next Door Spoils Me Rotten", "Saeki-san", "Mahiru is a beautiful girl whose classmates all call her an “angel.” Not only is she a star athlete with perfect grades—she’s also drop-dead gorgeous. Amane‚ an average guy and self-admitted slob‚ has never thought much of the divine beauty‚ despite attending the same school. Everything changes‚ however‚ when he happens to see Mahiru sitting alone in a park during a rainstorm. Thus begins the strange relationship between this incredibly unlikely pair!", 20, true, "./assets/tenshi.jpg");
 
-appendLibraryToDOM();
-appendBooksToDOM();
-handleHomeClick();
-handleNewMangaClick();
+appendFormToDOM();
+
+// appendLibraryToDOM();
+// appendBooksToDOM();
+// handleHomeClick();
+// handleNewMangaClick();
