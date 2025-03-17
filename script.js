@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 let currentPath = "/home";
 
 function Book(name, author, description, chapters, read, cover) {
@@ -20,9 +20,10 @@ function addBookToLibrary(name, author, description, chapters, read, cover) {
 }
 
 
-function createBookCard(name, author, description, chapters, read, cover) {
+function createBookCard(name, author, description, chapters, read, cover, id) {
     const card = document.createElement("article");
     card.classList.add("card");
+    card.setAttribute("data-id", id);
 
     const coverImage = document.createElement("img");
     coverImage.src = cover;
@@ -40,7 +41,7 @@ function createBookCard(name, author, description, chapters, read, cover) {
 
     const info = createCardInfo(author, chapters);
 
-    const controls = createCardControls(read);
+    const controls = createCardControls(read, id);
 
     const descriptionParagraph = document.createElement("p");
     descriptionParagraph.textContent = description;
@@ -79,7 +80,7 @@ function createCardInfo(author, chapters) {
     return infoContainer;
 }
 
-function createCardControls(read) {
+function createCardControls(read, id) {
     const container = document.createElement("div");
     container.classList.add("controls");
 
@@ -93,6 +94,9 @@ function createCardControls(read) {
     const removeButton = document.createElement("button");
     removeButton.classList.add("remove");
     removeButton.textContent = "remove";
+    removeButton.addEventListener("click", (e) => {
+        removeBook(id);
+    })
 
     container.append(readButton, removeButton);
 
@@ -110,7 +114,7 @@ function createIconImage(source, size) {
 function appendBooksToDOM() {
     const container = document.querySelector(".cards");
     for (const book of myLibrary) {
-        const card = createBookCard(book.name, book.author, book.description, book.chapters, book.read, book.cover);
+        const card = createBookCard(book.name, book.author, book.description, book.chapters, book.read, book.cover, book.id);
         container.append(card);
     }
 }
@@ -174,6 +178,22 @@ function createFilterButtons() {
 function removeLibrary() {
     const library = document.querySelector(".library");
     library.remove();
+}
+
+function removeBook(id) {
+    const filteredLibrary = myLibrary.filter((book) => {
+        book.id !== id;
+    })
+    myLibrary = filteredLibrary;
+    console.log(myLibrary);
+    const book = document.querySelector(`[data-id="${id}"]`);
+    book.remove();
+}
+
+function refreshLibrary() {
+    const library = document.querySelector(".library");
+    library.replaceChildren();
+    appendBooksToDOM();
 }
 
 function createMangaForm() {
