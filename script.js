@@ -197,6 +197,8 @@ function createMangaForm() {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         handleFormSubmission(form);
+        const homeAnchor = document.querySelector(".home-anchor");
+        homeAnchor.click();
     })
 
     return form;
