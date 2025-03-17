@@ -179,6 +179,7 @@ function createFormField(labelText, type, name, required) {
     const label = document.createElement("label");
     label.textContent = labelText
     label.setAttribute("for", name);
+    if (required) label.classList.add("required");
 
     const input = document.createElement("input");
     input.setAttribute("type", type);
