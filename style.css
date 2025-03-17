@@ -222,16 +222,18 @@ main h2 {
 
 .filters button {
     font-size: 1.1rem;
-    padding: 0.1rem 0.2rem;
+    padding: 0.2rem 0.4rem;
     background-color: transparent;
     border: none;
     color: #C3C4C4;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 
 .filters button.current {
     color: white;
+    background-color: black;
 }
 
 .count {

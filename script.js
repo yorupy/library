@@ -1,6 +1,6 @@
 let myLibrary = [];
 let currentPath = "/home";
-let filter = "all";
+let filter = "All";
 
 function Book(name, author, description, chapters, read, cover) {
     if (!new.target) {
@@ -127,9 +127,9 @@ function appendBooksToDOM() {
 
 function filterDisplayBooks() {
     const filteredBooks = myLibrary.filter((book) => {
-        if (filter === "all") {
+        if (filter === "All") {
             return true;
-        } else if (filter === "completed") {
+        } else if (filter === "Completed") {
             return book.read;
         } else {
             return !book.read;
@@ -189,9 +189,19 @@ function createFilterButtons() {
         const button = document.createElement("button");
         button.setAttribute("type", "button");
         button.textContent = name;
+        if (name === "All") button.classList.add("current");
+        button.addEventListener("click", handleFilterClick)
         container.append(button);
     }
     return container;
+}
+
+function handleFilterClick(e) {
+    filter = e.target.textContent;
+    const prevCurrent = document.querySelector(".current");
+    prevCurrent.classList.toggle("current");
+    e.target.classList.toggle("current");
+    refreshLibrary();
 }
 
 function removeLibrary() {
