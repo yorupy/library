@@ -98,7 +98,6 @@ nav ul {
     display: flex;
     flex-direction: column;
     font-weight: bold;
-    gap: 1rem;
 }
 
 nav a {
@@ -262,6 +261,25 @@ main h2 {
 
 .card .description {
     font-size: 0.9rem;
+}
+
+.card .content {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.card .content::after {
+    --md-background: 255 255 255;
+    --md-accent: 240 241 242;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    content: "";
+    background: linear-gradient(rgb(255 255 255/0), rgb(240 241 242));
+    height: 1rem;
+    left: 0;
 }
 
 .card .cover {
