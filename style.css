@@ -252,7 +252,7 @@ main h2 {
     height: 15rem;
     background-color: #F0F1F2;
     align-items: start;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
     overflow: hidden;
     border-radius: 5px;
 }
@@ -263,6 +263,7 @@ main h2 {
 
 .card .description {
     font-size: 0.9rem;
+    line-height: 1.25rem;
 }
 
 .card .content {
@@ -278,7 +279,7 @@ main h2 {
     width: 100%;
     content: "";
     background: linear-gradient(rgb(255 255 255/0), rgb(240 241 242));
-    height: 2rem;
+    height: 1.5rem;
     left: 0;
 }
 
