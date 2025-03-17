@@ -449,6 +449,8 @@ form button:active {
     align-items: center;
     gap: 0.3rem;
     background-color: rgb(233, 234, 235);
+    width: 5rem;
+    justify-content: center;
 }
 
 .controls .read:hover {
