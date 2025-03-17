@@ -90,6 +90,10 @@ function createCardControls(read, id) {
     indicator.classList.add("indicator", read ? "green" : "red");
     const text = document.createTextNode(read ? "read" : "unread");
     readButton.append(indicator, text);
+    readButton.addEventListener("click", (e) => {
+        updateReadState(id);
+        refreshLibrary();
+    })
 
     const removeButton = document.createElement("button");
     removeButton.classList.add("remove");
@@ -187,9 +191,18 @@ function removeBook(id) {
     book.remove();
 }
 
+function updateReadState(id) {
+    for (const book of myLibrary) {
+        if (book.id === id) {
+            book.read = !book.read;
+            break;
+        }
+    }
+}
+
 function refreshLibrary() {
-    const library = document.querySelector(".library");
-    library.replaceChildren();
+    const cardsContainer = document.querySelector(".cards");
+    cardsContainer.replaceChildren();
     appendBooksToDOM();
 }
 
