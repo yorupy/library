@@ -165,14 +165,25 @@ function createMangaForm() {
     requiredParagraph.classList.add("required-p");
     requiredParagraph.textContent = "Required fields are followed by *";
 
-    const titleField = createFormField("Title", "text", "title", true);
+    const titleField = createFormField("Title", "text", "title", true,
+        { "placeholder": "Tying the knot with an Amagami sister" }
+    );
+    const authorField = createFormField("Author", "text", "author", true,
+        { "placeholder": "Naito Marcey" }
+    );
+    const chaptersField = createFormField("Number of chapters", "number", "chapters", true, {
+        "placeholder": "116",
+        "min": 1
+    });
+    const coverField = createFormField("Cover image", "url", "cover", true);
 
-    form.append(heading, requiredParagraph, titleField);
+
+    form.append(heading, requiredParagraph, titleField, authorField, chaptersField, coverField);
 
     return form;
 }
 
-function createFormField(labelText, type, name, required) {
+function createFormField(labelText, type, name, required, inputAttributes) {
     const paragraph = document.createElement("p");
     paragraph.classList.add("field");
 
@@ -186,6 +197,10 @@ function createFormField(labelText, type, name, required) {
     input.setAttribute("name", name);
     input.setAttribute("id", name);
     input.required = required;
+
+    for (const attribute in inputAttributes) {
+        input.setAttribute(attribute, inputAttributes[attribute]);
+    }
 
     paragraph.append(label, input);
 

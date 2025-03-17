@@ -353,10 +353,14 @@ form {
 .field input {
     padding: 0.5rem;
     background-color: #F0F1F2;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 5px;
 }
 
 .field input:focus {
     outline-color: var(--mangadex-orange);
+}
+
+.field input:not(:placeholder-shown):invalid {
+    border: 1px solid red;
 }
