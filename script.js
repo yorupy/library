@@ -175,8 +175,10 @@ function createMangaForm() {
         "placeholder": "116",
         "min": 1
     });
-    const coverField = createFormField("Cover image", "url", "cover", true);
-
+    const coverField = createFormField("Cover image", "url", "cover", true, {
+        "placeholder": "https://cdn.archonia.com/images/1-104291521-1-1-original1/tying-the-knot-with-an-amagami-sister-vol-03-gn-manga.jpg",
+        "pattern": "https://.*"
+    });
 
     form.append(heading, requiredParagraph, titleField, authorField, chaptersField, coverField);
 
