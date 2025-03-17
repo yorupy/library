@@ -15,6 +15,10 @@ function Book(name, author, description, chapters, read, cover) {
     this.id = crypto.randomUUID();
 }
 
+Book.prototype.changeRead = function () {
+    this.read = !this.read;
+}
+
 function addBookToLibrary(name, author, description, chapters, read, cover) {
     const newBook = new Book(name, author, description, chapters, read, cover);
     myLibrary.push(newBook);
@@ -221,7 +225,7 @@ function removeBook(id) {
 function updateReadState(id) {
     for (const book of myLibrary) {
         if (book.id === id) {
-            book.read = !book.read;
+            book.changeRead();
             break;
         }
     }
