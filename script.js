@@ -194,6 +194,11 @@ function createMangaForm() {
 
     form.append(heading, requiredParagraph, titleField, authorField, chaptersField, coverField, descriptionArea, readCheckbox, submitButton);
 
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        handleFormSubmission(form);
+    })
+
     return form;
 }
 
@@ -205,6 +210,18 @@ function createSubmitButton() {
     button.textContent = "Save";
 
     return button;
+}
+
+function handleFormSubmission(form) {
+    const [...data] = new FormData(form);
+}
+
+function arraysToObject(array) {
+    const object = {}
+    for (const arr of array) {
+        object[arr[0]] = arr[1];
+    }
+    return object;
 }
 
 function createDescriptionArea(labelText, name, required, attributes) {
