@@ -180,9 +180,17 @@ function createMangaForm() {
         "pattern": "https://.*"
     });
 
-    const descriptionArea = createDescriptionArea("Description", "description", true);
+    const descriptionArea = createDescriptionArea("Description", "description", true,
+        {
+            "placeholder": "Kamihate Uryuu, orphaned since childhood, receives an invitation to stay at the local Shinto shrine. All he wanted was a quiet place to study so that he can fulfill his dream of making it into a top medical school, but after arriving there, he comes across three beautiful shrine maiden sisters... and the head priest requests that he marry one of them and take over the shrine.",
+            "rows": 4
+        }
+    );
 
-    form.append(heading, requiredParagraph, titleField, authorField, chaptersField, coverField, descriptionArea);
+    const readCheckbox = createFormField("Have you read this manga yet?", "checkbox", "read", false, {
+    });
+
+    form.append(heading, requiredParagraph, titleField, authorField, chaptersField, coverField, descriptionArea, readCheckbox);
 
     return form;
 }

@@ -343,6 +343,7 @@ form {
 .field label {
     font-size: 1.1rem;
     font-weight: 500;
+    width: max-content;
 }
 
 .field label.required::after {
@@ -366,4 +367,36 @@ form {
 .field input:not(:placeholder-shown):invalid,
 .field textarea:not(:placeholder-shown):invalid {
     border: 1px solid red;
+}
+
+.field:has(input[type="checkbox"]) {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.field:has(input[type="checkbox"]) label {
+    font-weight: normal;
+}
+
+.field input[type="checkbox"] {
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0.1rem solid black;
+    background-color: white;
+    display: grid;
+    place-content: center;
+}
+
+.field input[type="checkbox"]::before {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    box-shadow: inset 1em 1em var(--mangadex-orange);
+    display: none;
+}
+
+.field input[type="checkbox"]:checked::before {
+    display: block;
 }
