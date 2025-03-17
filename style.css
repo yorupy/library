@@ -430,3 +430,42 @@ form button:hover {
 form button:active {
     background-color: var(--mangadex-orange-darkest);
 }
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.8rem;
+}
+
+.controls button {
+    border: none;
+    padding: 0.2rem 0.6rem;
+    border-radius: 5px;
+}
+
+.controls .read {
+    background-color: rgb(233, 234, 235);
+}
+
+.controls .read:hover {
+    background-color: rgb(223, 224, 225);
+}
+
+.controls .read:active {
+    background-color: rgb(213, 214, 215);
+}
+
+.controls .remove {
+    background-color: var(--mangadex-orange);
+    color: white;
+    font-weight: 500;
+}
+
+.controls .remove:hover {
+    background-color: var(--mangadex-orange-darker);
+}
+
+.controls .remove:active {
+    background-color: var(--mangadex-orange-darkest);
+}
