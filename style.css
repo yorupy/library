@@ -419,6 +419,7 @@ form button {
     font-size: 1.2rem;
     border-radius: 5px;
     text-align: center;
+    cursor: pointer;
 }
 
 form button:hover {
