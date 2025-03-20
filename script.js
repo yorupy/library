@@ -2,23 +2,50 @@ let myLibrary = [];
 let currentPath = "/home";
 let filter = "All";
 
-function Book(name, author, description, chapters, read, cover) {
-    if (!new.target) {
-        throw Error("Must use the new operator to call the function")
+class Book {
+    #id = crypto.randomUUID();
+    constructor(name, author, description, chapters, read, cover) {
+        this._name = name;
+        this._description = description;
+        this._author = author;
+        this._chapters = chapters;
+        this._read = read;
+        this._cover = cover;
     }
-    this.name = name;
-    this.description = description;
-    this.author = author;
-    this.chapters = chapters;
-    this.read = read;
-    this.cover = cover;
-    this.id = crypto.randomUUID();
-}
 
-Book.prototype.changeRead = function () {
-    this.read = !this.read;
-}
+    get name() {
+        return this._name;
+    }
 
+    get cover() {
+        return this._cover;
+    }
+
+    get chapters() {
+        return this._chapters;
+    }
+
+    get author() {
+        return this._author;
+    }
+
+    get description() {
+        return this._description;
+    }
+
+    get id() {
+        return this.#id;
+    }
+
+    get read() {
+        return this._read;
+    }
+
+    changeRead() {
+        this._read = !this._read;
+    }
+
+}
 function addBookToLibrary(name, author, description, chapters, read, cover) {
     const newBook = new Book(name, author, description, chapters, read, cover);
     myLibrary.push(newBook);
